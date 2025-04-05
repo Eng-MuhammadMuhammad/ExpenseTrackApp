@@ -141,7 +141,7 @@ const AddExpenseForm = () => {
       date: "",
       items: items.map(() => ({ name: "", price: "" })),
     });
-  }, []);
+  }, [items]);
 
   return (
     <div className="max-w-4xl mx-auto px-4">
