@@ -1,14 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
-import Navbar from './components/Navbar';
-import Dashboard from './pages/Dashboard';
-import AddExpenseForm from './pages/AddExpenseForm';
-import EditExpenseForm from './pages/EditExpenseForm';
-import ExpenseHistoryPage from './pages/ExpenseHistoryPage';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import AddExpenseForm from "./pages/AddExpenseForm";
+import EditExpenseForm from "./pages/EditExpenseForm";
+import ExpenseHistoryPage from "./pages/ExpenseHistoryPage";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -21,7 +27,11 @@ function App() {
               {/* Public Routes */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              
+              <Route
+                path="/forgot-password"
+                element={<ForgotPassword />}
+              />{" "}
+              {/* Add ForgotPassword route */}
               {/* Protected Routes */}
               <Route element={<PrivateRoute />}>
                 <Route path="/" element={<Dashboard />} />
@@ -29,7 +39,6 @@ function App() {
                 <Route path="/edit/:expenseId" element={<EditExpenseForm />} />
                 <Route path="/history" element={<ExpenseHistoryPage />} />
               </Route>
-              
               {/* Redirect any unknown routes to home */}
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
